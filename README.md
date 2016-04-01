@@ -1,4 +1,5 @@
-This package contains an Address Book demo application, voluntarily written in Plain PHP 5, and organized in a near MVC-like structure.
+This package contains an Address Book demo application, 
+voluntarily written in Plain PHP 5, and organized in a near MVC-like structure.
 
 Features: 
  - CRUD operations for managing contacts and groups
@@ -32,5 +33,4 @@ better security features and DB abstraction.
 
 
 Author: Makhtar Diouf <makhtar.diouf@gmail.com>
-
 2016-03
