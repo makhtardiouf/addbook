@@ -66,7 +66,7 @@ switch ($action) {
     //*** Groups operations
 
    case 'group_list':
-    // Alias for for group_list
+    // Alias for group_list
     case 'group_new':
         require_once 'views/groups.php';
         break;
