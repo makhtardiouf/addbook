@@ -1,0 +1,10 @@
+<?php
+
+// Shared utility functions
+
+
+    public function LogData($data) {
+            $msg = print_r($data, true);
+	            error_log(date("Ymd H:i") . " " . $msg . PHP_EOL, 3, LOG_FILE);
+		        }
+
