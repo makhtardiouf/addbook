@@ -28,7 +28,9 @@ better security features and DB abstraction.
 - Internal PHP test server:  cd addbook/ ; sudo php -S localhost:9000 &
 
 - Apache (Ubuntu): 
+
     sudo cp -R addbook /var/www/html/ 
+
     sudo chown -R www-data.www-data /var/www/html/addbook
 
 
