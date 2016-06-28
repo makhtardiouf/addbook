@@ -17,7 +17,8 @@ DATABASE:
 - import the DB schema from addbook/tests/addbook201603.sql
 - If debugging is enabled, queries and info/error messages will be logged in addbook.log
  
-  * Credentials:
+* Credentials:
+
     GRANT SELECT, INSERT, UPDATE, DELETE ON `addbook`.* TO 'demo'@'localhost' IDENTIFIED BY ';demo;' ;
 
 
