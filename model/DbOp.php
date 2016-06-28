@@ -2,16 +2,11 @@
 
 /* Makhtar Diouf 
  * $Id: DbOp.php,v 483fadaed043 2016/03/07 05:15:34 makhtar $
- * 
+ * Database operations.
  */
 require_once 'config.php';
 require_once 'utils.php';
 
-/**
- * Database operations.
- *
- * @author makhtar
- */
 class DbOp {
 
     private $con;
@@ -23,7 +18,7 @@ class DbOp {
     }
 
     /**
-     * Connect to the MySQL DB / main a  persistent connection.
+     * Connect to the MySQL DB with a  persistent connection.
      *
      * @return PDO connection object
      */
@@ -45,12 +40,11 @@ class DbOp {
             return $this->con;
         } catch (PDOException $e) {
             if (!class_exists('PDO')) {
-                echo 'Please verify that the pdo-mysql driver is installed<br>';
+                echo 'CRITICAL: please make sure that the pdo-mysql driver is installed<br>';
             }
             $err = 'DB query error: ' . $e->getMessage();
             echo $err;
             Logit($err);
-
             return;
         }
     }
@@ -78,13 +72,11 @@ class DbOp {
             }
 
             Logit($query);
-
             return $ret;
         } catch (PDOException $e) {
             $err = 'DB query error: ' . $e->getMessage();
             echo $err;
             Logit($err);
-
             return;
         }
     }
@@ -112,8 +104,8 @@ class DbOp {
             $stm->execute($arr);
             Logit($query);
             Logit($arr);
-
             return $stm;
+            
         } catch (PDOException $e) {
             $err = 'DB error: ' . $e->getMessage();
             echo $err;

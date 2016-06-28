@@ -1,17 +1,13 @@
 <?php
 
-/* $Id: Group.php,v dfb31dc4875e 2016/03/07 15:13:14 makhtar $
+/* $Id: Group.php,v dfb31dc4875e 2016/03/07 18:13:14 makhtar $
 * Makhtar Diouf
 * Demo address book app 
+* Object Model for Group records
+* Create 1:many group(s) of contacts, inherit between them.
 */
 require_once 'DbOp.php';
 
-/**
-* Object Model for Group records
-* Create 1:many group(s) of contacts, inherit between them.
-*
-* @author makhtar
-*/
 class Group {
 
     protected $id;
@@ -93,7 +89,6 @@ class Group {
             if (!$ret) {
                 $con->rollBack();
                 LogEcho('Error: failed setting parent of group ' . $this->name);
-
                 return false;
             }
 
@@ -114,6 +109,7 @@ class Group {
     public function GetGroup($id) {
         if (!is_numeric($id)) {
             LogEcho("Can not access group with invalid Id $id");
+            return false;
         }
         $stm = $this->db->PrepExecute('SELECT Id, name, parent_id FROM ' .
                 TB_GROUPS . ' WHERE Id=:gid', array('gid' => $id));
@@ -121,7 +117,6 @@ class Group {
         if ($stm) {
             return $stm->fetch();
         }
-
         return false;
     }
 
@@ -193,7 +188,7 @@ class Group {
             $gid = $pid;
             // Stop when cycling back to the group requested initially 
             if ($gid == $refGroupId)
-                ; //break;
+                break;
         } while ($stm);
 
         return $stms;
@@ -220,7 +215,6 @@ class Group {
         }
 
         LogEcho("Successfully deleted group with Id $id");
-
         return true;
     }
 

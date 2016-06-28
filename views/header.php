@@ -1,5 +1,5 @@
 <?php
-/* $Id: header.php,v 88c0940a0921 2016/03/06 15:11:56 makhtar $
+/* $Id: header.php,v 88c0940a0921 2016/03/06 19:11:56 makhtar $
  * Makhtar Diouf
  * Demo address book app 
  * Header with links common to all pages

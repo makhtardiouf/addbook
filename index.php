@@ -1,11 +1,11 @@
 <?php
 
-/* $Id: index.php,v f7eee0b7a33a 2016/03/06 17:31:05 makhtar $
+/* $Id: index.php,v f7eee0b7a33a 2016/03/06 19:31:05 makhtar $
  * Makhtar Diouf
  * Demo address book app 
  * Entry point that mimics a front controller
  */
-require_once "views/header.php";
+require_once "./views/header.php";
 
 function __autoload($class) {
     $file = "./model/" . $class . ".php";

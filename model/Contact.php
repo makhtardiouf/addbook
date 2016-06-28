@@ -194,7 +194,6 @@ class Contact {
     public function Delete($id) {
         if (!is_numeric($id)) {
             LogEcho("Invalid contact Id $id");
-
             return false;
         }
         $query = 'DELETE FROM ' . TB_CONTACT . " WHERE Id='" . $id . "'";
@@ -205,7 +204,6 @@ class Contact {
         }
 
         LogEcho("Successfully deleted Contact with Id $id");
-
         return true;
     }
 
@@ -232,9 +230,9 @@ class Contact {
         try {
             Logit('Exporting contacts...');
             $ret = $this->GetContacts('ASC', ' ');
+            
             if (!$ret || $ret->rowCount() < 1) {
                 LogEcho('No contacts to export');
-
                 return array();
             }
 
@@ -278,9 +276,9 @@ class Contact {
             }
 
             return array('rowcount' => $ret->rowCount(), 'filename' => $filename);
+            
         } catch (Exception $ex) {
             LogEcho('Export error: ' . $ex->getMessage());
-
             return array();
         }
         unset($xml);
@@ -291,7 +289,7 @@ class Contact {
         Logit($msg);
     }
 
-    //**** Automatically generated Get/Setters 
+    //**** Auto-generated Get/Setters 
 
     public function getId() {
         return $this->id;
